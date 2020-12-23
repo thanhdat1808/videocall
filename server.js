@@ -101,4 +101,4 @@ function randomString(length)
       return imgData.replace(/^data:image\/(png|jpeg|jpg);base64,/, "");
   }
 
-server.listen(3000)
+server.listen(3000||process.env.PORT)
