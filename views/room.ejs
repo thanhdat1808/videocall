@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script>
+        const ROOM_ID = "<%= roomId %>"
+        console.log(ROOM_ID)
+    </script>
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="script.js"></script>
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <div class="call-screen">
+            <div class="call" id="call">
+                
+            </div>
+            <div class="button">
+                <div class="camera-on" id="on" >
+                    <button onclick="setoff()" title="Turn off camera"><img src="https://img.icons8.com/ios/100/000000/no-video--v2.png"/></i></button>
+                </div>
+                <div class="camera-off" id="off">
+                    <button onclick="seton()" title="Turn on camera"><img src="https://img.icons8.com/ios/100/000000/no-video--v1.png"/></i></button>
+                </div>
+                <div class="end-call">
+                    <button title="End call"><img src="https://image.flaticon.com/icons/png/512/733/733497.png"/></button>
+                </div>
+                <div class="mic-on" id="micon">
+                    <button onclick="micon()" title="Turn off mic"><img src="https://img.icons8.com/windows/100/000000/microphone--v1.png"/></button>
+                </div>
+                <div class="mic-off" id="micoff">
+                    <button onclick="micoff()" title="Turn on mic"><img src="https://img.icons8.com/windows/32/000000/no-microphone.png"/></button>
+                </div>
+            </div>
+        </div>
+        <div class="chat-screen" id="chat-screen">
+            <div class="title">
+                <div class="title-onl" onclick="online()" id="title-online">
+                    <img src="https://img.icons8.com/ios/50/000000/user-male-circle.png"/>
+                    <p>Mọi người</p>
+                </div>
+                <div class="title-chat" onclick="chat()" id="title-chat">
+                    <img src="https://img.icons8.com/nolan/64/messages-mac.png"/>
+                    <p>Trò chuyện</p>
+                </div>
+            </div>
+            <div class="chat" id="chat" >
+                    <div class="messager" id="item">
+    
+                    </div>
+                <div class="input">
+                    <input id="fileSelector" type="file">
+                    <div class="review" id="divrev"><img id="review"></img></div>
+                    <textarea name="text" id="text" onkeyup ="change()" placeholder="Gửi tin nhắn cho mọi người"></textarea>
+                    <button class="btn" id="btnsend" title="Gửi tin nhắn"><img src="https://img.icons8.com/small/100/000000/filled-sent.png"/></button>
+                </div>
+            </div>
+            
+            <div class="online" id="online">
+                <div id="code">
+                Mã cuộc họp: 
+                </div>
+                <hr>
+                <span>Trong cuộc gọi: </span>
+                <hr>
+                <div class="user" id="users">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="login" id="login">
+            <input type="text" id="userName" placeholder="User name">
+            <input type="button" value="Tham gia" id="btnlogin">
+        </div>
+    </div>
+</body>
+</html>

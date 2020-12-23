@@ -1,0 +1,235 @@
+body, html{
+	height: 100%;
+	margin: 0;
+	width: 100%;
+}
+.main{
+	width: 100%;
+	display: flex;
+	height: 100%;
+}
+.call-screen{
+	width: 75%;
+	height: 100%;
+	margin: 0;
+}
+.call{
+	width: 100%;
+	height: 86%;
+	background: #111111;
+	display: grid;
+    grid-template-columns: repeat(auto-fill, 33%);
+	grid-gap: 0px;
+}
+.call video{
+	width: 100%;
+	height: 100%;
+	margin-top: -5px;
+	margin-bottom: -10px;
+}
+.roll{
+	width: 100%;
+	height: 50%;
+	display: flex;
+}
+.user-call{
+	width: 33.333333333%;
+	height: 100%;
+	border: 0.5px solid white;
+	background: #111111;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.user-call video{
+	width: 100%;
+	height: 100%;
+}
+.avatar{
+	width: 100px;
+	height: 100px;
+	background: #FF8C00;
+	border-radius: 50%;
+	display: none;
+}
+/* .user-call:hover .avatar{
+	display: flex;
+} */
+.button{
+	width: 100%;
+	height: 14%;
+	display: flex;
+	justify-content: center;
+	background: #EEEEEE;
+	margin: 0 auto;
+}
+.button img{
+	width: 30px;
+	height: 30px;
+}
+.button button{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	border: 0.5px solid #AAAAAA;
+	margin: 15px 25px 25px 0;
+}
+.button button:active{
+	outline: none;
+}
+.button button:hover{
+	background: #DDDDDD;
+}
+.camera-off{
+	display: none;
+
+}
+.mic-off{
+	display: none;
+}
+.chat-screen{
+	width: 25%;
+	height: 100%;
+}
+.title{
+	display: flex;
+	height: 60px;
+	justify-content: center;
+	font-size: 20px;
+	align-items: center;
+}
+.title img{
+	width: 30px;
+	height: 30px;
+}
+.title p{
+	margin-top: 10px;
+}
+.title-onl{
+	width: 50%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+.title-onl:hover{
+	background: #E5D9D7;
+}
+.title-chat{
+	width: 50%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+.title-chat:hover{
+	background: #E5D9D7;
+}
+.chat{
+	width: 100%;
+	height: auto;
+	border-top: 0.5px solid #BBBBBB;
+	display: none;
+}
+.messager{
+	width: 100%;
+	height:calc(100vh - 150px) ;
+	float: left;
+	padding-left: 25px;
+	font-size: 13px;
+	color: #444444;
+	overflow-y: scroll;
+}
+.user-name{
+	display: flex;
+	margin-top: 20px;
+}
+.user-name p{
+	margin-left: 10px;
+	color: #999999;
+	margin-bottom: 0px;
+}
+.content{
+	margin-bottom: 20px;
+	display: block;
+}
+.img-mess{
+	width: 90%;;
+}
+.input{
+	width: 100%;
+	height: 60px;
+	max-height: 160px;
+	border-top: 1px solid #BBBBBB;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: center;
+}
+.input textarea{
+	border: none;
+	margin-top: 20px;
+	width: 70%;
+	height: 24px;
+	min-height: 24px;
+	border-bottom: 1px solid #CCCCCC;
+	outline: none;
+	resize: none;
+	overflow: hidden;
+}
+.input textarea:focus {
+	border-bottom: 1px solid #555;
+}
+.input button{
+	height: 25px;
+	width: 25px;
+	border: none;
+	margin-top: 20px;
+	margin-left: 10px;	
+	background: none;
+	opacity: 0.2;
+	cursor: not-allowed;
+}
+.input button:active{
+	outline: none;
+	outline-style: none;
+	border: none;
+}
+.btn img{
+	width: 24px;
+	height: 24px;
+	margin-bottom: 2px;
+}
+.review{
+	display: none;
+	width: 70%;
+	margin-top: 10px;;
+	justify-content: center;
+}
+.review img{
+	height: 60px;
+}
+.input input{
+	border: none;
+	margin-top: 20px;
+	width: 10%;
+	height: 24px;
+	min-height: 24px;
+	border-bottom: 1px solid #CCCCCC;
+	outline: none;
+	resize: none;
+	overflow: hidden;
+}
+.online{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+@media (max-width: 970px){
+	.call-screen{
+		width: 100%;
+	}
+	.chat-screen{
+		display: none;
+	}
+}

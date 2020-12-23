@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style_creatroom.css">
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/join.js"></script>
+</head>
+<body>
+<div class="header">
+	<div class="logo">
+		<img src="img\Call.Group-Logo-pos-01-01.png">
+	</div>
+</div>
+<div class="content">
+	<div class="slogan">
+		<div class="h1">
+			<span>Cuộc họp video chất lượng. Giờ đây miễn phí cho tất cả mọi người.</span>
+		</div>
+		<div class="h2">
+			<span>Chúng tôi đã thiết kế Call Group - dịch vụ tổ chức cuộc họp online cung cấp miễn phí cho mọi người.</span>
+		</div>
+		<div class="input">
+			<div class="creat" onclick="location.replace('/')">
+				<img src="https://img.icons8.com/fluent/48/000000/video-message.png"/>
+				Cuộc họp mới
+			</div>
+			<div class="join">
+				<div class="code">
+					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAu0lEQVRIie2RsQ6CMBRF72va8AF1U7/InTg4Gga/R42MDMon+EEwGtaSaHhOmBISrPpIHDjbbdpz+/KAiYlfIQA45vmKmVMw5kLeklglu836qgCAGz4JygFgwdSkAKDaA0F5y9IvGI1OQWS05cd9JpV7BbVzJJkBQPuBtLlJ5t4EY9CZIDLa1s5R+5PIaLuN42pIsM8y69/33wMf7uAdX+3gcL4EFwztoAy2hFO8CohVIlxSgJAI+ib+mSc8y1XAY9RLVgAAAABJRU5ErkJggg==">
+					<input type="text" name="code" id="code" onclick="display()" onkeyup="setcolor()" placeholder="Nhập một mã cuộc họp">
+				</div>
+				<div class="button" id="button" onclick="dieu_huong()">
+					Tham gia
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="image">
+		<div class="img">
+			<img src="img\background.jpg">
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
