@@ -1,7 +1,7 @@
 const socket = io('/');
 const videoGird = document.getElementById('call');
-const myPeer = new Peer(
-    { iceServers: [{url:'stun:stun01.sipphone.com'},
+const myPeer = new Peer({ 
+    iceServers: [{url:'stun:stun01.sipphone.com'},
     {url:'stun:stun.ekiga.net'},
     {url:'stun:stun.fwdnet.net'},
     {url:'stun:stun.ideasip.com'},
