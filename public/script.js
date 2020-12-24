@@ -58,6 +58,7 @@ socket.on('login-fail', () =>{
 socket.on("login-sucess", users =>{
     $('#chat-screen').show();
     $('#login').hide();
+    console.log(localId)
     socket.emit('join-room', ROOM_ID, localId);
     users.forEach(name => {
         $('#users').append('<div><span>'+name+'</span></div>')
