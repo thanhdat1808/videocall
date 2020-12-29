@@ -5,6 +5,7 @@ const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
 var fs = require("fs")
 const users = []
+const idlist = []
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -28,35 +29,30 @@ io.on('connection', socket => {
   socket.on('peerid', id =>{
     socket.emit('peerid', id)
   })
-  socket.on('login', username =>{
-    if(users.indexOf(username)>=0){
-      socket.emit("login-fail");
-    }
-    else{
-      users.push(username)
-      socket.user = username
-      socket.emit("login-sucess", users)
-    }
+  socket.on('login', data =>{
+    listOnl(socket,data.roomId, data.name)
+    socket.user = data.name
   })
   socket.on('join-room', (roomId, userId) => {
+    const stt = idlist.indexOf(roomId)
     socket.join(roomId)
     console.log(socket.rooms)
     socket.to(roomId).broadcast.emit('user-connected', {
       userId: userId,
       roomId: roomId,
-      name: users
+      name: users[stt]
     })
 
     socket.on('disconnect', () => {
-      users.splice(users.indexOf(socket.user),1)
+      users[stt].splice(users[stt].indexOf(socket.user),1)
       socket.to(roomId).broadcast.emit('user-disconnected', {
         userId: userId,
-        name: users
+        name: users[stt]
       })
     })
     socket.on("sendMessage", function(data){
       console.log(socket.id + "send massage: " + data);
-      io.sockets.emit("serverSend", {
+      io.sockets.to(roomId).emit("serverSend", {
         name: socket.user,
         mess: data
       });
@@ -75,7 +71,7 @@ io.on('connection', socket => {
         if (err !== null)
           console.log(err);
         else{
-          io.sockets.emit("receivePhoto", {
+          io.sockets.to(roomId).emit("receivePhoto", {
             name: socket.user,
             path: savedFilename,
           });
@@ -100,5 +96,28 @@ function randomString(length)
   function getBase64Image(imgData) {
       return imgData.replace(/^data:image\/(png|jpeg|jpg);base64,/, "");
   }
-
+  function listOnl(socket, roomId, username){
+    const id = idlist.indexOf(roomId)
+    if(id>=0){
+      console.log(users[id]) 
+      console.log(users[id].indexOf(username))
+      if(users[id].indexOf(username)>=0){
+        console.log('false')
+        socket.emit("login-fail")
+      }
+      else{
+        users[id].push(username)
+        socket.emit("login-sucess", users[id])
+      }
+  
+    }
+    else{
+      idlist.push(roomId)
+      const stt = idlist.indexOf(roomId)
+      const name = [username]
+      users.push(name)
+      socket.emit("login-sucess", users[stt])
+    }
+    console.log(users)
+  }
 server.listen(process.env.PORT|| 3000)

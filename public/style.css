@@ -18,7 +18,7 @@ body, html{
 	height: 86%;
 	background: #111111;
 	display: grid;
-    grid-template-columns: repeat(auto-fill, 33%);
+    grid-template-columns: repeat(auto-fill, 50%);
 	grid-gap: 0px;
 }
 .call video{
@@ -220,10 +220,21 @@ body, html{
 	outline: none;
 	resize: none;
 	overflow: hidden;
+	
+}
+.input input[type=file]{
+	display: none;
+}
+.icon-file img{
+	margin-top: 15px;
+	width: 34px;
 }
 .online{
 	margin-left: 20px;
 	margin-right: 20px;
+}
+.user{
+	font-size: 18px;
 }
 @media (max-width: 970px){
 	.call-screen{
